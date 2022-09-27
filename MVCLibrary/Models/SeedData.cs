@@ -10,15 +10,16 @@ namespace MVCLibrary.Models
             using (var context = new LibraryContext(
                 serviceProvider.GetRequiredService<DbContextOptions<LibraryContext>>()))
             {
-                context.RemoveRange(context.Books);
-                context.SaveChanges();
+                //Clear context
+                //context.RemoveRange(context.Books);
+                //context.SaveChanges();
                 if (context.Books.Any())
                 {
                     return;
                 }
                 context.Books.AddRange(
-                    new Book { Title = "Code Chronicles", CallNumber = "AXD 2029" },
-                    new Book { Title = "Perfume", CallNumber = "AKQ 2229 " }
+                    new Book { Title = "Code Chronicles",Author ="Ben", CallNumber = "AXD 2029" },
+                    new Book { Title = "Perfume", Author = "Patrick Susskind", CallNumber = "AKQ 2229 " }
                     );
                 context.SaveChanges();
             }
